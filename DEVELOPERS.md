@@ -2,6 +2,16 @@
 
 ## コーディング規約
 
+- テンプレート文字列を使用する
+
+    good:
+    ```
+    const s = `hello ${"world"}`;
+    ```
+    bad:
+    ```
+    const s = "hello" + "world";
+    ```
 - コンポーネントは全て関数コンポーネント
 - ページコンポーネントは`*****Page`という名前
     ex: HomePage, InfoPage
