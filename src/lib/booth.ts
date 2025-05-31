@@ -16,8 +16,11 @@ export default class BoothHelper {
     private static boothsDataCache: Booth[] | null = null;
     private pathGenerater: () => [string, string] = pathGenerateForProductEnv;
 
-    public setPathGenerater(fn: () => [string, string]) {
-        this.pathGenerater = fn;
+    public checkoutTestEnv() {
+        this.pathGenerater = () => [
+            'src/tests/dummy_assets/booths-index.yaml',
+            'src/tests/dummy_assets/booths'
+        ]
     }
 
     // ヘルパー関数として分離
