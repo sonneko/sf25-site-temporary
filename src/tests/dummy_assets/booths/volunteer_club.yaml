@@ -1,0 +1,7 @@
+id: volunteer_club
+type: club
+locate: inside
+isFood: false
+name: ボランティア部
+description: 地域貢献の様子を展示します。
+place: 教室A
