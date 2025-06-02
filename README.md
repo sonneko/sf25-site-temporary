@@ -8,11 +8,9 @@ SF25のサイト開発用レポジトリです。
 - TypeScript
 - SCSS Modules（`*.module.scss`）
 - [Vitest](https://vitest.dev/)  
-- Git Flow によるブランチ戦略
+- js-yaml
 
-**Vitestは実際に導入されていません。**
 
----
 
 ## ディレクトリ構成（App Router 構成）
 
@@ -28,10 +26,11 @@ src/
 ├── lib/              # ユーティリティや関数
 ├── styles/           # グローバルSCSSなど
 ├── tests/            # テストコード（Vitest）
+├── assets/           # 静的なyamlファイル
 
 ````
 
----
+
 
 ##  使用技術・ライブラリ
 
@@ -41,53 +40,29 @@ src/
 | 言語           | TypeScript |
 | スタイリング   | SCSS Modules (`*.module.scss`) |
 | テスト         | Vitest / Testing Library |
-| バージョン管理 | Git + Git Flow |
+| yamlのパース | js-yaml |
 
----
+
 
 ## テスト
-
-### セットアップ
-
-```bash
-npm install
-````
 
 ### テスト実行
 
 ```bash
-npx vitest
+vitest run
 ```
 
-or
 
-```bash
-npm run test
-```
 
----
-
-## Git Flow 運用ルール
-
-このプロジェクトでは [Git Flow](https://nvie.com/posts/a-successful-git-branching-model/) に基づいたブランチ戦略を採用しています。
+## ブランチ運用ルール
 
 ### ブランチ構成
 
 * `main`：本番環境用（デプロイ対象）
 * `develop`：開発統合用
-* `feature/xxx`：機能追加・改善
-* `bugfix/xxx`：バグ修正
-* `release/xxx`：リリース準備
-* `hotfix/xxx`：緊急修正
+* `xxx`：作業用（マージ後削除する）
 
-### ブランチの作成例
 
-```bash
-git checkout develop
-git checkout -b feature/login-form
-```
-
----
 
 ## 開発用スクリプト
 
@@ -95,16 +70,4 @@ git checkout -b feature/login-form
 | --------------- | ------------- |
 | `npm run dev`   | 開発用サーバ起動      |
 | `npm run build` | 本番ビルド         |
-| `npm run test`  | 単体テスト（Vitest） |
-
-**現在Vitestは実際に導入していません。**
-
----
-
-## 設定
-
-* `tsconfig.json`：`strict: true`、`noImplicitAny: true` など厳格な型チェック
-* `next.config.ts`：React Strict Mode、TypeScript エラーでビルド停止
-
----
-
+| `vitest run`  | 単体テスト（Vitest） |
