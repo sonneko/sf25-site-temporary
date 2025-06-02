@@ -1,0 +1,7 @@
+id: puzzle_oper
+type: oper
+locate: inside
+isFood: false
+name: なぞとき本部
+description: 学園全体を使った謎解きイベントの本部です。
+place: 本部テント

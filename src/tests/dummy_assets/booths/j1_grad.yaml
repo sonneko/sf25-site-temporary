@@ -1,0 +1,7 @@
+id: j1_grad
+type: grad
+locate: out
+isFood: false
+name: 中1展示
+description: 学年の学習成果を展示します。
+place: 中庭

@@ -1,0 +1,14 @@
+# 企画一覧
+# [booth_name]_volu : 有志(voluntary)企画
+# [booth_name]_club : クラブ(club)企画
+# [booth_name]_grad : 学年(grade)企画
+# [booth_name]_clas : クラス(class)企画
+# [booth_name]_oper : 運営(operator)企画
+booths:
+# - amusement_volu  (example)
+# - volunteer_club  (example)
+# - j1A_clas        (example)
+# - h2D_clas        (example)
+# - j1_grad         (example)
+# - puzzle_oper     (example)
+
