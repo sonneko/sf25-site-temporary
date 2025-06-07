@@ -3,6 +3,7 @@ import path from 'path';
 import yaml from 'js-yaml';
 
 import type { Booth, BoothKind, BoothLocation } from '@/types/booth';
+import ProductOrDevEnv from './ProductOrDevEnv';
 
 
 // index_boothのパスと、boothsのいっぱい入ったディレクトリの場所・process.cwd()からの相対パス
@@ -16,7 +17,7 @@ export default class BoothHelper {
     private static boothsDataCache: Booth[] | null = null;
     private pathGenerater: () => [string, string] = pathGenerateForProductEnv;
 
-    public checkoutTestEnv() {
+    public checkoutDevEnv() {
         this.pathGenerater = () => [
             'src/tests/dummy_assets/booths-index.yaml',
             'src/tests/dummy_assets/booths'
@@ -47,15 +48,20 @@ export default class BoothHelper {
     }
 
     // force: 強制的にキャッシュを更新
-    public load(force?: boolean) {
+    public load(force?: boolean): BoothHelper {
+        if (ProductOrDevEnv.isDevEnv()) {
+            this.checkoutDevEnv();
+        }
+        
         if (BoothHelper.boothsDataCache === null || force === true) {
             BoothHelper.boothsDataCache = this.loadBoothData();
         }
+        return this;
     }
 
     public getAllBooths(): Booth[] {
         if (BoothHelper.boothsDataCache === null) {
-            throw new Error("\nloadメソッドよりも先に他のメソッドが呼ばれました。\nBoothHelperクラスのメソッドはloadメソッドを使用してからでないと使用できません。")
+            throw new Error("\nloadメソッドよりも先にload必須のメソッドが呼ばれました。\nBoothHelperクラスのメソッドはloadメソッドを使用してからでないと使用できません。")
         }
         return BoothHelper.boothsDataCache;
     }
@@ -103,5 +109,9 @@ export default class BoothHelper {
                 booth.name.toLowerCase().includes(lower) ||
                 booth.description.toLowerCase().includes(lower)
         );
+    }
+
+    public static generateBoothUrl(booth: Booth): string {
+        return `/booth/${booth.id}`;
     }
 }

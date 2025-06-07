@@ -6,10 +6,7 @@ describe('BoothHelper (integration with assets_test)', () => {
 
   beforeEach(() => {
     helper = new BoothHelper();
-    helper.setPathGenerater(() => [
-      'src/tests/dummy_assets/booths-index.yaml',
-      'src/tests/dummy_assets/booths'
-    ]);
+    helper.checkoutTestEnv();
     helper.load(true); // 強制的にキャッシュを更新して毎回同じ状態に
   });
 
