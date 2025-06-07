@@ -7,9 +7,6 @@ type Props = {
 export default async function EachBoothPage({ params }: Props) {
     const helper = new BoothHelper;
 
-    // TODO: 本番環境では、コメントアウトして本番環境用のassetsを読み込む
-    helper.checkoutTestEnv();
-
     helper.load();
     const id = (await params).booth_id;
     const booth = helper.getBoothById(id);
@@ -27,7 +24,6 @@ export default async function EachBoothPage({ params }: Props) {
 export async function generateStaticParams() {
     const helper = new BoothHelper();
 
-    // TODO: 本番環境では、コメントアウトして本番環境用のassetsを読み込む
     helper.checkoutTestEnv();
 
     helper.load();

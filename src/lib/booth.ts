@@ -48,6 +48,9 @@ export default class BoothHelper {
 
     // force: 強制的にキャッシュを更新
     public load(force?: boolean): BoothHelper {
+        // TODO: 本番環境では、コメントアウトして本番環境用のassetsを読み込む
+        this.checkoutTestEnv();
+        
         if (BoothHelper.boothsDataCache === null || force === true) {
             BoothHelper.boothsDataCache = this.loadBoothData();
         }
