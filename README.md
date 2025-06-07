@@ -94,7 +94,6 @@ git checkout -b feature/login-form
 | `npm run dev`   | 開発用サーバ起動      |
 | `npm run build` | 本番ビルド         |
 | `npm run test`  | 単体テスト（Vitest） |
-| `npm run tsm`  | module.scssの型定義ファイル自動生成タスクを追加 |
 
 ---
 

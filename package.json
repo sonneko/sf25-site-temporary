@@ -7,11 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "tsm": "tsm src --watch --implementation sass --nameFormat none --exportType default --aliasPrefixes.@ src/",
     "test": "vitest run"
   },
   "dependencies": {
-    "js-yaml": "^4.1.0",
     "next": "15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
@@ -21,7 +19,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "typed-scss-modules": "^8.1.1",
+    "sass": "^1.89.1",
     "typescript": "^5",
     "vitest": "^3.1.4"
   }
