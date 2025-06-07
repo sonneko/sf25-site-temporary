@@ -24,8 +24,6 @@ export default async function EachBoothPage({ params }: Props) {
 export async function generateStaticParams() {
     const helper = new BoothHelper();
 
-    helper.checkoutTestEnv();
-
     helper.load();
     const data = helper.getAllBooths();
     return data.map(eachBooth => {
