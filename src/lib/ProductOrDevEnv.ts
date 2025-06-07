@@ -2,20 +2,24 @@ export type Env = 'product' | 'dev';
 
 export default class ProductOrDevEnv {
     private static env: Env = 'product';
+    private static isInited: boolean = false;
 
     private static init() {
-        try {
-            const envValue = process.env.IS_PRODUCT_OR_DEV_ENV;
+        if (!this.isInited) {
+            try {
+                const envValue = process.env.IS_PRODUCT_OR_DEV_ENV;
 
-            if (envValue === 'product') {
-                this.env = 'product';
-            } else if (envValue === 'dev') {
-                this.env = 'dev';
-            } else {
-                throw new Error('\nIS_PRODUCT_OR_DEV_ENV is illegal value.');
+                if (envValue === 'product') {
+                    this.env = 'product';
+                } else if (envValue === 'dev') {
+                    this.env = 'dev';
+                } else {
+                    throw new Error('\nIS_PRODUCT_OR_DEV_ENV is illegal value.');
+                }
+            } catch (e) {
+                throw new Error(`\nIS_PRODUCT_OR_DEV_ENV is not defined.\n\n\n${e}`);
             }
-        } catch (e) {
-            throw new Error(`\nIS_PRODUCT_OR_DEV_ENV is not defined.\n\n\n${e}`);
+            this.isInited = true;
         }
     }
 
@@ -24,18 +28,18 @@ export default class ProductOrDevEnv {
         this.env = env;
     }
 
-    public static getEnv() {
+    public static getEnv(): Env {
         this.init();
         return this.env;
     }
 
-    public static isProductEnv() {
+    public static isProductEnv(): boolean {
         this.init();
         return this.env === 'product';
     }
 
-    public static isDevEnv() {
-        this.init():
+    public static isDevEnv(): boolean {
+        this.init();
         return this.env === 'dev';
     }
 }
