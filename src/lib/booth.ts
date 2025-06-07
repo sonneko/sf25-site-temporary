@@ -47,10 +47,11 @@ export default class BoothHelper {
     }
 
     // force: 強制的にキャッシュを更新
-    public load(force?: boolean) {
+    public load(force?: boolean): BoothHelper {
         if (BoothHelper.boothsDataCache === null || force === true) {
             BoothHelper.boothsDataCache = this.loadBoothData();
         }
+        return this;
     }
 
     public getAllBooths(): Booth[] {
