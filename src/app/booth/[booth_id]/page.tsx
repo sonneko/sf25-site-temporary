@@ -8,8 +8,9 @@ export default async function EachBoothPage({ params }: Props) {
     const helper = new BoothHelper;
 
     helper.load();
-    const id = (await params).booth_id;
+    const id = params.booth_id;
     const booth = helper.getBoothById(id);
+
     if (booth === null) {
         throw new Error(`Booth with id ${id} not found.`)
     }
@@ -17,7 +18,7 @@ export default async function EachBoothPage({ params }: Props) {
         <>
             This is each booths page in "/booth/{booth.id}".
         </>
-    )
+    );
 }
 
 
