@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "tsm": "tsm src --watch --implementation sass --nameFormat none --exportType default --aliasPrefixes.@ src/"
   },
   "dependencies": {
     "js-yaml": "^4.1.0",
