@@ -3,6 +3,7 @@ import path from 'path';
 import yaml from 'js-yaml';
 
 import type { Booth, BoothKind, BoothLocation } from '@/types/booth';
+import ProductOrDevEnv from './ProductOrDevEnv';
 
 
 // index_boothのパスと、boothsのいっぱい入ったディレクトリの場所・process.cwd()からの相対パス
@@ -16,7 +17,7 @@ export default class BoothHelper {
     private static boothsDataCache: Booth[] | null = null;
     private pathGenerater: () => [string, string] = pathGenerateForProductEnv;
 
-    public checkoutTestEnv() {
+    public checkoutDevEnv() {
         this.pathGenerater = () => [
             'src/tests/dummy_assets/booths-index.yaml',
             'src/tests/dummy_assets/booths'
@@ -48,8 +49,9 @@ export default class BoothHelper {
 
     // force: 強制的にキャッシュを更新
     public load(force?: boolean): BoothHelper {
-        // TODO: 本番環境では、コメントアウトして本番環境用のassetsを読み込む
-        this.checkoutTestEnv();
+        if (ProductOrDevEnv.isDevEnv()) {
+            this.checkoutDevEnv();
+        }
         
         if (BoothHelper.boothsDataCache === null || force === true) {
             BoothHelper.boothsDataCache = this.loadBoothData();
