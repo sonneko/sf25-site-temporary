@@ -5,3 +5,4 @@ isFood: true
 name: アミューズメント課
 description: ジェットコースターなどの遊具を設置します。
 place: グラウンド
+groupName: 有志

@@ -15,7 +15,8 @@ export type Booth = {
   isFood: IsFoodBooth;
   name: string;            // ex: 'アミューズメント課'
   description: string;     // ex: 'アミューズメント課はジェットコースターを...'
-  place: string;           // ex: 
+  place: string;
+  groupName: string;
 };
 
 // アイコンのパスは、"/public/booth-icons/[id].jpeg"に存在する
