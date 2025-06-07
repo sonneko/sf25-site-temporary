@@ -23,16 +23,6 @@ export default class ProductOrDevEnv {
         }
     }
 
-    public static setEnv(env: Env) {
-        this.init();
-        this.env = env;
-    }
-
-    public static getEnv(): Env {
-        this.init();
-        return this.env;
-    }
-
     public static isProductEnv(): boolean {
         this.init();
         return this.env === 'product';
