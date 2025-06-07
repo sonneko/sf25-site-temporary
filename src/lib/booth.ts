@@ -55,7 +55,7 @@ export default class BoothHelper {
 
     public getAllBooths(): Booth[] {
         if (BoothHelper.boothsDataCache === null) {
-            throw new Error("\nloadメソッドよりも先に他のメソッドが呼ばれました。\nBoothHelperクラスのメソッドはloadメソッドを使用してからでないと使用できません。")
+            throw new Error("\nloadメソッドよりも先にload必須のメソッドが呼ばれました。\nBoothHelperクラスのメソッドはloadメソッドを使用してからでないと使用できません。")
         }
         return BoothHelper.boothsDataCache;
     }
@@ -103,5 +103,9 @@ export default class BoothHelper {
                 booth.name.toLowerCase().includes(lower) ||
                 booth.description.toLowerCase().includes(lower)
         );
+    }
+
+    public static generateBoothUrl(booth: Booth): string {
+        return `/booth/${booth.id}`;
     }
 }
