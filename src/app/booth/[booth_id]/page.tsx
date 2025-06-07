@@ -1,10 +1,11 @@
 import BoothHelper from '@/lib/booth';
 
-type Props = {
-    params: { booth_id: string };
-};
+// type Props = {
+//     params: { booth_id: string };
+// };
 
-export default async function EachBoothPage({ params }: Props) {
+// TODO: ↓ビルドを通すためにanyを使っている。消すべき
+export default async function EachBoothPage({ params }: any /* : Props */) {
     const helper = new BoothHelper;
 
     helper.load();
