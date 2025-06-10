@@ -1,3 +1,4 @@
+import ProductOrDevEnv from "@/lib/ProductOrDevEnv";
 import type { NextConfig } from "next";
 
 const path = require('path');
@@ -14,7 +15,9 @@ const nextConfig: NextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
     additionalData: "@use './src/styles/_global' as *;",
-  }
+  },
+  basePath: ProductOrDevEnv.isDevEnv() ? "/sf25-site-temporary" : "",
+  assetPrefix: ProductOrDevEnv.isDevEnv() ? "/sf25-site-temporary" : ""
 };
 
 export default nextConfig;
