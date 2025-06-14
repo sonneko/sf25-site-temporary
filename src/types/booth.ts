@@ -1,22 +1,38 @@
-// 企画に対する型定義
-// 順に有志企画・クラブ企画・学年企画・クラス企画・運営企画
-export type BoothKind = 'volu' | 'club' | 'grad' | 'clas' | 'oper';
+import { z } from 'zod';
 
-// 屋外企画　or 屋内企画
-export type BoothLocation = 'out' | 'inside';
+export const BoothKindSchema = z
+  .enum(['volu', 'club', 'grad', 'clas', 'oper'])
+  .describe('企画種別: 有志(volu)、クラブ(club)、学年(grad)、クラス(clas)、運営(oper)');
+export type BoothKind = z.infer<typeof BoothKindSchema>;
 
-// 食品企画 or 非食品企画
-export type IsFoodBooth = boolean;
+export const BoothLocationSchema = z
+  .enum(['out', 'inside'])
+  .describe('企画の開催場所: 屋外(out) または 屋内(inside)');
+export type BoothLocation = z.infer<typeof BoothLocationSchema>;
 
-export type Booth = {
-  id: string;              // ex: 'amusement_volu'
-  type: BoothKind;
-  locate: BoothLocation;
-  isFood: IsFoodBooth;
-  name: string;            // ex: 'アミューズメント課'
-  description: string;     // ex: 'アミューズメント課はジェットコースターを...'
-  place: string;
-  groupName: string;
-};
+export const IsFoodBoothSchema = z
+  .boolean()
+  .describe('trueなら食品企画、falseなら非食品企画');
+export type IsFoodBooth = z.infer<typeof IsFoodBoothSchema>;
 
-// アイコンのパスは、"/public/booth-icons/[id].jpeg"に存在する
+export const BoothSchema = z.object({
+  id: z
+    .string()
+    .describe('企画ID: 英数字で一意。例: amusement_volu'),
+  type: BoothKindSchema,
+  locate: BoothLocationSchema,
+  isFood: IsFoodBoothSchema,
+  name: z
+    .string()
+    .describe('企画名: 表示用の日本語名称。例: アミューズメント課'),
+  description: z
+    .string()
+    .describe('企画の説明文。'),
+  place: z
+    .string()
+    .describe('当日の会場場所名。例: 中庭、体育館、教室番号など'),
+  groupName: z
+    .string()
+    .describe('出展団体名: クラス名やクラブ名などの識別に使用'),
+});
+export type Booth = z.infer<typeof BoothSchema>;
