@@ -1,9 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
+import { z } from 'zod';
 
-import type { Booth, BoothKind, BoothLocation } from '@/types/booth';
+import { BoothSchema, type Booth, type BoothKind, type BoothLocation } from '@/types/booth';
 import ProductOrDevEnv from './ProductOrDevEnv';
+import { Schema } from 'zod';
 
 
 // index_boothのパスと、boothsのいっぱい入ったディレクトリの場所・process.cwd()からの相対パス
@@ -26,25 +28,39 @@ export default class BoothHelper {
 
     // ヘルパー関数として分離
     private loadBoothData(): Booth[] {
-        // assets/booths-index.yaml から booth id の一覧を取得
         const [indexBooth, boothsDirectory] = this.pathGenerater();
-        const filePath = path.join(process.cwd(), indexBooth);
-        const fileContents = fs.readFileSync(filePath, 'utf8');
-        try {
-            const { booths } = yaml.load(fileContents) as { booths: string[] };
+        const filePath: string = path.join(process.cwd(), indexBooth);
 
-            // assets/booths/[booth_name].yamlからid列を用いてそれぞれの詳細情報を取得
-            return booths.map((booth_name) => {
-                const filePath = path.join(process.cwd(), boothsDirectory, `${booth_name}.yaml`);
-                const fileContents = fs.readFileSync(filePath, 'utf8');
-                const each_booth_data = yaml.load(fileContents) as Booth;
-                return each_booth_data;
-            })
-
-        } catch (e) {
-            // as キーワードを使ったので
-            throw new Error(`\n\nbooths.yamlのパースに失敗しました!\n\n\n${e}`);
+        const openFile = (filePath: string) => {
+            try {
+                const fileContents: string = fs.readFileSync(filePath, 'utf8');
+                return fileContents;
+            } catch (e) {
+                throw new Error(`Failed to open file: ${filePath}.\n error_message: ${e}`);
+            }
         }
+
+        const parseContents = (fileContents: string, schema: Schema) => {
+            try {
+                const parsed = schema.parse(yaml.load(fileContents));
+                return parsed;
+            } catch (e) {
+                throw new Error(`Failed to parse file: ${filePath}.\n error_message: ${e}`);
+            }
+        }
+
+        const fileContents = openFile(filePath);
+        const boothIndex = parseContents(fileContents, z.array(z.string()));
+
+        // assets/booths/[booth_name].yamlからid列を用いてそれぞれの詳細情報を取得
+        const boothsData: Booth[] = boothIndex.map((booth_name: string): Booth[] => {
+            const filePath = path.join(process.cwd(), boothsDirectory, `${booth_name}.yaml`);
+            const fileContents = openFile(filePath);
+            const eachBoothData = parseContents(fileContents, BoothSchema);
+            return eachBoothData;
+        });
+
+        return boothsData;
     }
 
     // force: 強制的にキャッシュを更新
@@ -52,7 +68,7 @@ export default class BoothHelper {
         if (ProductOrDevEnv.isDevEnv()) {
             this.checkoutDevEnv();
         }
-        
+
         if (BoothHelper.boothsDataCache === null || force === true) {
             BoothHelper.boothsDataCache = this.loadBoothData();
         }
