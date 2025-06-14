@@ -1,0 +1,17 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit" // 保存時にESLintの自動修正を実行
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ], // ESLintを適用する言語
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ], // 複数のワークスペースに対応
+  "typescript.tsdk": "node_modules/typescript/lib" // 使用するTypeScriptのバージョンを指定
+}
