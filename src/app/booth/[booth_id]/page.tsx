@@ -5,11 +5,10 @@ type Props = {
 };
 
 export default async function EachBoothPage({ params }: Props) {
-    const helper = new BoothHelper;
 
-    helper.load();
+    BoothHelper.load()
     const id = (await params).booth_id;
-    const booth = helper.getBoothById(id);
+    const booth = BoothHelper.getBoothById(id);
 
     if (booth === null) {
         throw new Error(`Booth with id ${id} not found.`)
@@ -23,10 +22,8 @@ export default async function EachBoothPage({ params }: Props) {
 
 
 export async function generateStaticParams() {
-    const helper = new BoothHelper();
-
-    helper.load();
-    const data = helper.getAllBooths();
+    BoothHelper.load();
+    const data = BoothHelper.getAllBooths();
     return data.map(eachBooth => {
         return { booth_id: eachBooth.id }
     });
