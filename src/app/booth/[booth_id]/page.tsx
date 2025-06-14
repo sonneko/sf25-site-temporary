@@ -1,16 +1,14 @@
 import BoothHelper from '@/lib/booth';
 
-// type Props = {
-//     params: { booth_id: string };
-// };
+type Props = {
+    params: Promise<{ booth_id: string }>;
+};
 
-// TODO: ↓ビルドを通すためにanyを使っている。消すべき
-export default async function EachBoothPage({ params }: any /* : Props */) {
-    const helper = new BoothHelper;
+export default async function EachBoothPage({ params }: Props) {
 
-    helper.load();
-    const id = params.booth_id;
-    const booth = helper.getBoothById(id);
+    BoothHelper.load()
+    const id = (await params).booth_id;
+    const booth = BoothHelper.getBoothById(id);
 
     if (booth === null) {
         throw new Error(`Booth with id ${id} not found.`)
@@ -24,10 +22,8 @@ export default async function EachBoothPage({ params }: any /* : Props */) {
 
 
 export async function generateStaticParams() {
-    const helper = new BoothHelper();
-
-    helper.load();
-    const data = helper.getAllBooths();
+    BoothHelper.load();
+    const data = BoothHelper.getAllBooths();
     return data.map(eachBooth => {
         return { booth_id: eachBooth.id }
     });

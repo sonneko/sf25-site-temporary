@@ -4,7 +4,7 @@
 # [booth_name]_grad : 学年(grade)企画
 # [booth_name]_clas : クラス(class)企画
 # [booth_name]_oper : 運営(operator)企画
-booths:
+
 # - amusement_volu  (example)
 # - volunteer_club  (example)
 # - j1A_clas        (example)

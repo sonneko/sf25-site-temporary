@@ -97,10 +97,23 @@ git checkout -b feature/login-form
 
 ---
 
-## 設定
+## 開発コマンド
 
-* `tsconfig.json`：`strict: true`、`noImplicitAny: true` など厳格な型チェック
-* `next.config.ts`：React Strict Mode、TypeScript エラーでビルド停止
+| コマンド            | 説明                                                       |
+| :------------------ | :--------------------------------------------------------- |
+| `npm run dev`       | 開発サーバーを起動します。                                 |
+| `npm run build`     | プロダクション用にアプリケーションをビルドします。         |
+| `npm run start`     | ビルドされたアプリケーションを起動します。               |
+| `npm run lint`      | Next.js の推奨設定に基づき、ESLint を実行します。          |
+| `npm run lint:check`| 全ての TypeScript/JavaScript ファイルに対して ESLint を実行し、コードの品質をチェックします。 |
+| `npm run lint:fix`  | ESLint で検出された問題を可能な限り自動修正します。        |
+| `npm run format:check`| 全てのファイルを Prettier でフォーマットが正しく行われているかチェックします。 |
+| `npm run format:write`| 全てのファイルを Prettier で自動フォーマットします。     |
 
 ---
 
+## 環境変数について
+
+* `NEXT_PUBLIC_ENV`: "dev" or "product"
+    - "dev": 開発環境・テスト用の企画モックデータが自動で入る。basePathがGitHubPagesのdemo用に調節される。テスト環境は自動でこちらに設定される。
+    - "product": 本番環境・本番用の企画データが自動で入る。テストページ（`/test`は自動的に削除される）

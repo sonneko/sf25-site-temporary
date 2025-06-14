@@ -31,16 +31,16 @@
 
     ex:
     ```page.tsx
-    // module.scss
+    // module.scss読み込み
     import "./page.module.scss";
 
-    // react or nextjs api
+    // reactかnextjsのapi
     import { useState, useEffect } from "react";
 
-    // library's component/helper function/hook
+    // libraryの component/helper function/hook
     import { useScrollPosition } from "*****";
 
-    // original component
+    // 自作component
     import { Header } from "*****";
 
     export default function HomePage() {
@@ -49,3 +49,9 @@
     ```
 
     (実際はコメントおよび\nは不要)
+
+## 確認事項
+- PR時
+    - ビルドが通るかどうか
+    - `npm runn test`
+    - PAGES.mdの更新漏れがないかどうか

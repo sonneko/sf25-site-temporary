@@ -1,108 +1,150 @@
 import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
+import { z } from 'zod';
 
-import type { Booth, BoothKind, BoothLocation } from '@/types/booth';
-import ProductOrDevEnv from './ProductOrDevEnv';
+import { BoothSchema, type Booth, type BoothKind, type BoothLocation } from '@/types/booth';
+import EnvManager from './EnvManager';
+import { Schema } from 'zod';
 
 
-// index_boothのパスと、boothsのいっぱい入ったディレクトリの場所・process.cwd()からの相対パス
-// DIのため分離
-function pathGenerateForProductEnv(): [string, string] {
-    return ["assets/booths-index.yaml", "assets/booths"];
-}
 
-// helper class
 export default class BoothHelper {
     private static boothsDataCache: Booth[] | null = null;
-    private pathGenerater: () => [string, string] = pathGenerateForProductEnv;
+    private static pathGenerater: () => [string, string] = this.pathGenerateForProductEnv;
 
-    public checkoutDevEnv() {
-        this.pathGenerater = () => [
+    /**
+     * 開発環境の場合、パスをテスト用のダミーアセットに変更する
+     */
+    public static checkoutDevEnv() {
+        this.pathGenerater = this.pathGenerateForDevEnv;
+    }
+
+    // 本番環境用のpathGenerater関数
+    private static pathGenerateForProductEnv(): [string, string] {
+        return [
+            "assets/booths-index.yaml",
+            "assets/booths"
+        ];
+    }
+
+    private static pathGenerateForDevEnv(): [string, string] {
+        return [
             'src/tests/dummy_assets/booths-index.yaml',
             'src/tests/dummy_assets/booths'
-        ]
+        ];
     }
 
     // ヘルパー関数として分離
-    private loadBoothData(): Booth[] {
-        // assets/booths-index.yaml から booth id の一覧を取得
+    private static loadBoothData(): Booth[] {
         const [indexBooth, boothsDirectory] = this.pathGenerater();
-        const filePath = path.join(process.cwd(), indexBooth);
-        const fileContents = fs.readFileSync(filePath, 'utf8');
-        try {
-            const { booths } = yaml.load(fileContents) as { booths: string[] };
+        const filePath: string = path.join(process.cwd(), indexBooth);
 
-            // assets/booths/[booth_name].yamlからid列を用いてそれぞれの詳細情報を取得
-            return booths.map((booth_name) => {
-                const filePath = path.join(process.cwd(), boothsDirectory, `${booth_name}.yaml`);
-                const fileContents = fs.readFileSync(filePath, 'utf8');
-                const each_booth_data = yaml.load(fileContents) as Booth;
-                return each_booth_data;
-            })
-
-        } catch (e) {
-            // as キーワードを使ったので
-            throw new Error(`\n\nbooths.yamlのパースに失敗しました!\n\n\n${e}`);
+        const openFile = (filePath: string) => {
+            try {
+                const fileContents: string = fs.readFileSync(filePath, 'utf8');
+                return fileContents;
+            } catch (e) {
+                throw new Error(`Failed to open file: ${filePath}.\n error_message: ${e}`);
+            }
         }
+
+        const parseContents = (fileContents: string, schema: Schema) => {
+            try {
+                const parsed = schema.parse(yaml.load(fileContents));
+                return parsed;
+            } catch (e) {
+                throw new Error(`Failed to parse file: ${filePath}.\n error_message: ${e}`);
+            }
+        }
+
+        const fileContents = openFile(filePath);
+        const boothIndex = parseContents(fileContents, z.array(z.string()));
+
+        // assets/booths/[booth_name].yamlからid列を用いてそれぞれの詳細情報を取得
+        const boothsData: Booth[] = boothIndex.map((booth_name: string): Booth[] => {
+            const filePath = path.join(process.cwd(), boothsDirectory, `${booth_name}.yaml`);
+            const fileContents = openFile(filePath);
+            const eachBoothData = parseContents(fileContents, BoothSchema);
+            return eachBoothData;
+        });
+
+        return boothsData;
     }
 
-    // force: 強制的にキャッシュを更新
-    public load(force?: boolean): BoothHelper {
-        if (ProductOrDevEnv.isDevEnv()) {
+    /**
+     * Boothsのデータをロードする関数
+     * @param {boolean} [force=false]- trueでキャッシュを無視して強制的に再ロード
+    */
+    public static load(force?: boolean): BoothHelper {
+        if (EnvManager.isDevEnv()) {
             this.checkoutDevEnv();
         }
-        
+
         if (BoothHelper.boothsDataCache === null || force === true) {
             BoothHelper.boothsDataCache = this.loadBoothData();
         }
         return this;
     }
 
-    public getAllBooths(): Booth[] {
+    public static getAllBooths(): Booth[] {
         if (BoothHelper.boothsDataCache === null) {
             throw new Error("\nloadメソッドよりも先にload必須のメソッドが呼ばれました。\nBoothHelperクラスのメソッドはloadメソッドを使用してからでないと使用できません。")
         }
         return BoothHelper.boothsDataCache;
     }
 
-    public getBoothById(id: string): Booth | null {
+    /**
+     * IDで企画を検索
+     * @param {string} id - 企画ID
+     * @return {Booth | null} 指定したIDの企画、見つからなければnull
+     */
+    public static getBoothById(id: string): Booth | null {
         const found = this.getAllBooths().find((eachBooth) => eachBooth.id === id);
         return found ?? null;
     }
 
     /**
      * 企画の種類（BoothKind）で絞り込む
+     * @param {BoothKind} - 企画の種類
+     * @return {Booth[]} 指定した種類の企画の配列
      */
-    public getBoothsByType(type: BoothKind): Booth[] {
+    public static getBoothsByType(type: BoothKind): Booth[] {
         return this.getAllBooths().filter((booth) => booth.type === type);
     }
 
     /**
      * 屋内・屋外（BoothLocation）で絞り込む
+     * @param {BoothLocation} - 場所の名前
+     * @return {Booth[]} 指定した場所にある企画の配列
      */
-    public getBoothsByLocation(location: BoothLocation): Booth[] {
+    public static getBoothsByLocation(location: BoothLocation): Booth[] {
         return this.getAllBooths().filter((booth) => booth.locate === location);
     }
 
     /**
      * 食品企画のみ取得
+     * @return {Booth[]} 食品企画の配列
      */
-    public getFoodBooths(): Booth[] {
+    public static getFoodBooths(): Booth[] {
         return this.getAllBooths().filter((booth) => booth.isFood === true);
     }
 
     /**
      * 特定の場所にある企画を取得
+     * @param {string} place - 場所の名前
+     * @return {Booth[]} 指定した場所にある企画の配列
      */
-    public getBoothsByPlace(place: string): Booth[] {
+    public static getBoothsByPlace(place: string): Booth[] {
         return this.getAllBooths().filter((booth) => booth.place === place);
     }
 
     /**
-     * 名前または説明にキーワードが含まれている企画を取得（部分一致・大文字小文字無視）
+     * 指定したキーワードを含む企画を取得（部分一致・大文字小文字無視）
+     * @param {string} keyword - 検索キーワード
+     * @return {Booth[]} 検索結果のBoothの配列
      */
-    public searchBooths(keyword: string): Booth[] {
+    public static searchBooths(keyword: string): Booth[] {
         const lower = keyword.toLowerCase();
         return this.getAllBooths().filter(
             (booth) =>
@@ -111,6 +153,11 @@ export default class BoothHelper {
         );
     }
 
+    /**
+     * 企画のURLを生成
+     * @param {Booth} booth - 企画オブジェクト
+     * @return {string} 企画のURL
+     */
     public static generateBoothUrl(booth: Booth): string {
         return `/booth/${booth.id}`;
     }
