@@ -31,16 +31,16 @@
 
     ex:
     ```page.tsx
-    // module.scss
+    // module.scss読み込み
     import "./page.module.scss";
 
-    // react or nextjs api
+    // reactかnextjsのapi
     import { useState, useEffect } from "react";
 
-    // library's component/helper function/hook
+    // libraryの component/helper function/hook
     import { useScrollPosition } from "*****";
 
-    // original component
+    // 自作component
     import { Header } from "*****";
 
     export default function HomePage() {

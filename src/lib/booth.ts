@@ -9,7 +9,6 @@ import { Schema } from 'zod';
 
 
 
-// helper class
 export default class BoothHelper {
     private static boothsDataCache: Booth[] | null = null;
     private static pathGenerater: () => [string, string] = this.pathGenerateForProductEnv;
