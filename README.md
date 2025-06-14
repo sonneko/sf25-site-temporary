@@ -107,3 +107,5 @@ git checkout -b feature/login-form
 ## 環境変数について
 
 * `NEXT_PUBLIC_ENV`: "dev" or "product"
+    - "dev": 開発環境・テスト用の企画モックデータが自動で入る。basePathがGitHubPagesのdemo用に調節される。テスト環境は自動でこちらに設定される。
+    - "product": 本番環境・本番用の企画データが自動で入る。テストページ（`/test`は自動的に削除される）
