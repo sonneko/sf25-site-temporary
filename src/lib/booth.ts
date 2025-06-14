@@ -8,25 +8,32 @@ import ProductOrDevEnv from './ProductOrDevEnv';
 import { Schema } from 'zod';
 
 
-// index_boothのパスと、boothsのいっぱい入ったディレクトリの場所・process.cwd()からの相対パス
-// DIのため分離
-function pathGenerateForProductEnv(): [string, string] {
-    return ["assets/booths-index.yaml", "assets/booths"];
-}
 
 // helper class
 export default class BoothHelper {
     private static boothsDataCache: Booth[] | null = null;
-    private static pathGenerater: () => [string, string] = pathGenerateForProductEnv;
+    private static pathGenerater: () => [string, string] = this.pathGenerateForProductEnv;
 
     /**
      * 開発環境の場合、パスをテスト用のダミーアセットに変更する
      */
     public static checkoutDevEnv() {
-        this.pathGenerater = () => [
+        this.pathGenerater = this.pathGenerateForDevEnv;
+    }
+
+    // 本番環境用のpathGenerater関数
+    private static pathGenerateForProductEnv(): [string, string] {
+        return [
+            "assets/booths-index.yaml",
+            "assets/booths"
+        ];
+    }
+
+    private static pathGenerateForDevEnv(): [string, string] {
+        return [
             'src/tests/dummy_assets/booths-index.yaml',
             'src/tests/dummy_assets/booths'
-        ]
+        ];
     }
 
     // ヘルパー関数として分離
