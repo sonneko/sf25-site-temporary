@@ -4,7 +4,7 @@ import yaml from 'js-yaml';
 import { z } from 'zod';
 
 import { BoothSchema, type Booth, type BoothKind, type BoothLocation } from '@/types/booth';
-import ProductOrDevEnv from './ProductOrDevEnv';
+import EnvManager from './EnvManager';
 import { Schema } from 'zod';
 
 
@@ -78,7 +78,7 @@ export default class BoothHelper {
      * @param {boolean} [force=false]- trueでキャッシュを無視して強制的に再ロード
     */
     public static load(force?: boolean): BoothHelper {
-        if (ProductOrDevEnv.isDevEnv()) {
+        if (EnvManager.isDevEnv()) {
             this.checkoutDevEnv();
         }
 

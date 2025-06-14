@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
-import ProductOrDevEnv from "@/lib/ProductOrDevEnv";
+import EnvManager from "@/lib/EnvManager";
 
 export default function TestPage() {
     // 本番環境では、このページは表示されない
-    if (ProductOrDevEnv.isProductEnv()) {
+    if (EnvManager.isProductEnv()) {
         notFound();
     }
     return (

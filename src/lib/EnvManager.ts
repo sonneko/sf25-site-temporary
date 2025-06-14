@@ -1,6 +1,6 @@
 export type Env = 'product' | 'dev';
 
-export default class ProductOrDevEnv {
+export default class EnvManager {
     private static env: Env = 'product';
     private static isInited: boolean = false;
 
