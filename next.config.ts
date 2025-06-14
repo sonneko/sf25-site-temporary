@@ -6,7 +6,7 @@ const path = require('path');
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production', // 本番では console を削除
+    removeConsole: ProductOrDevEnv.isProductEnv(), // 本番では console を削除
   },
   typescript: {
     ignoreBuildErrors: false, // TypeScript エラー時にビルドを止める

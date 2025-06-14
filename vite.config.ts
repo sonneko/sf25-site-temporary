@@ -9,7 +9,7 @@ export default defineConfig({
     },
     test: {
         env: {
-            IS_PRODUCT_OR_DEV_ENV: "dev"
+            NEXT_PUBLIC_ENV: "dev"
         }
     }
 });

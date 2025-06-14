@@ -104,3 +104,6 @@ git checkout -b feature/login-form
 
 ---
 
+## 環境変数について
+
+* `NEXT_PUBLIC_ENV`: "dev" or "product"
