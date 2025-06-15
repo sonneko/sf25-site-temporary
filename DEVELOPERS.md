@@ -4,5 +4,5 @@
 
 - PR時
   - ビルドが通るかどうか
-  - `npm runn test`
+  - `npm run test`
   - PAGES.mdの更新漏れがないかどうか
