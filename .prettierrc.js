@@ -10,7 +10,7 @@ module.exports = {
 
   // JSX設定
   jsxSingleQuote: true,
-  jsxBracketSameLine: false,
+  jsxBracketSameLine: true,
 
   // その他の設定
   arrowParens: 'avoid',
