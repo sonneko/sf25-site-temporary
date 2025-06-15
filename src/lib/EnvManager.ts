@@ -20,11 +20,17 @@ export default class EnvManager {
     }
   }
 
+  /**
+   * @returns {boolean} 本番環境ならtrue・開発環境ならfalse
+   */
   public static isProductEnv(): boolean {
     this.init();
     return this.env === 'product';
   }
 
+  /**
+   * @returns {boolean} 本番環境ならfalse・開発環境ならtrue
+   */
   public static isDevEnv(): boolean {
     this.init();
     return this.env === 'dev';

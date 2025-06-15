@@ -23,6 +23,11 @@ export default class ConstantsManager {
     }
   }
 
+  /**
+   * 定数を取得する
+   * @param key - 定数のキー
+   * @returns 定数の内容
+   */
   public static get(key: keyof Constants): string {
     this.load();
     return this.constants![key];
