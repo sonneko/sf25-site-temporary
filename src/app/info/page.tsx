@@ -1,7 +1,3 @@
 export default function InfoPage() {
-    return (
-        <>
-            This is information page in "/info".
-        </>
-    )
+  return <>This is information page in "/info".</>;
 }

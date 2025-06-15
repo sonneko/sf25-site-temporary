@@ -1,23 +1,22 @@
-import ProductOrDevEnv from "@/lib/ProductOrDevEnv";
-import type { NextConfig } from "next";
-
-const path = require('path');
+import EnvManager from '@/lib/EnvManager';
+import type { NextConfig } from 'next';
+import path from 'path';
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production', // 本番では console を削除
+    removeConsole: EnvManager.isProductEnv(), // 本番では console を削除
   },
   typescript: {
     ignoreBuildErrors: false, // TypeScript エラー時にビルドを止める
   },
-  output: "export",
+  output: 'export',
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
     additionalData: "@use './src/styles/_global' as *;",
   },
-  basePath: ProductOrDevEnv.isDevEnv() ? "/sf25-site-temporary" : "",
-  assetPrefix: ProductOrDevEnv.isDevEnv() ? "/sf25-site-temporary" : ""
+  basePath: EnvManager.isDevEnv() ? '/sf25-site-temporary' : '',
+  assetPrefix: EnvManager.isDevEnv() ? '/sf25-site-temporary' : '',
 };
 
 export default nextConfig;
