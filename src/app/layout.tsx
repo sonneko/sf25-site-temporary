@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
+import ConstantsManager from '../lib/ConstantsManager';
 
 // TODO: メタデータ変更
 export const metadata: Metadata = {
-  title: 'SF25 official web site',
-  description: 'meta descriptionです。',
+  title: ConstantsManager.get('head-title'),
+  description: ConstantsManager.get('head-description'),
 };
 
 export default function RootLayout({

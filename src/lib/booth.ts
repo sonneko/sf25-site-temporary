@@ -1,6 +1,5 @@
-import fs from 'fs';
+import { openFile, parseContents } from './yamlLoader';
 import path from 'path';
-import yaml from 'js-yaml';
 import { z } from 'zod';
 
 import {
@@ -10,7 +9,6 @@ import {
   type BoothLocation,
 } from '@/types/booth';
 import EnvManager from './EnvManager';
-import type { Schema } from 'zod';
 
 export default class BoothHelper {
   private static boothsDataCache: Booth[] | null = null;
@@ -41,30 +39,12 @@ export default class BoothHelper {
     const [indexBooth, boothsDirectory] = this.pathGenerater();
     const filePath: string = path.join(process.cwd(), indexBooth);
 
-    const openFile = (filePath: string) => {
-      try {
-        const fileContents: string = fs.readFileSync(filePath, 'utf8');
-        return fileContents;
-      } catch (e) {
-        throw new Error(
-          `Failed to open file: ${filePath}.\n error_message: ${e}`
-        );
-      }
-    };
-
-    const parseContents = (fileContents: string, schema: Schema) => {
-      try {
-        const parsed = schema.parse(yaml.load(fileContents));
-        return parsed;
-      } catch (e) {
-        throw new Error(
-          `Failed to parse file: ${filePath}.\n error_message: ${e}`
-        );
-      }
-    };
-
     const fileContents = openFile(filePath);
-    const boothIndex = parseContents(fileContents, z.array(z.string()));
+    const boothIndex = parseContents(
+      fileContents,
+      z.array(z.string()),
+      filePath
+    );
 
     // assets/booths/[booth_name].yamlからid列を用いてそれぞれの詳細情報を取得
     const boothsData: Booth[] = boothIndex.map(
@@ -75,7 +55,11 @@ export default class BoothHelper {
           `${booth_name}.yaml`
         );
         const fileContents = openFile(filePath);
-        const eachBoothData = parseContents(fileContents, BoothSchema);
+        const eachBoothData = parseContents(
+          fileContents,
+          BoothSchema,
+          filePath
+        );
         return eachBoothData;
       }
     );
