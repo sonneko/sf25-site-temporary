@@ -1,5 +1,5 @@
-import EnvManager from "@/lib/EnvManager";
-import type { NextConfig } from "next";
+import EnvManager from '@/lib/EnvManager';
+import type { NextConfig } from 'next';
 
 const path = require('path');
 
@@ -11,13 +11,13 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: false, // TypeScript エラー時にビルドを止める
   },
-  output: "export",
+  output: 'export',
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
     additionalData: "@use './src/styles/_global' as *;",
   },
-  basePath: EnvManager.isDevEnv() ? "/sf25-site-temporary" : "",
-  assetPrefix: EnvManager.isDevEnv() ? "/sf25-site-temporary" : ""
+  basePath: EnvManager.isDevEnv() ? '/sf25-site-temporary' : '',
+  assetPrefix: EnvManager.isDevEnv() ? '/sf25-site-temporary' : '',
 };
 
 export default nextConfig;
