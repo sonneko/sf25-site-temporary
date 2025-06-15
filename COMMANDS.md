@@ -18,6 +18,7 @@
 | `npm run test:ui`       | テストUI表示                           |
 | `npm run test:run`      | テスト一回実行                         |
 | `npm run test:coverage` | テストカバレッジ取得                   |
+| `npm run full-check`    | 全てのチェックを行う                   |
 
 このプロジェクトで使用可能なnpmスクリプトの詳細説明です。
 
