@@ -1,5 +1,5 @@
 /** @type {import('prettier').Config} */
-module.exports = {
+export default {
   // 基本設定
   semi: true,
   trailingComma: 'es5',
@@ -10,7 +10,6 @@ module.exports = {
 
   // JSX設定
   jsxSingleQuote: true,
-  jsxBracketSameLine: true,
 
   // その他の設定
   arrowParens: 'avoid',
