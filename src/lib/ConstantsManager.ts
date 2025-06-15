@@ -1,6 +1,6 @@
 import z from 'zod';
 import path from 'path';
-import { openFile } from './yamlLoader';
+import { openFile, parseYaml } from './yamlLoader';
 
 export const constantsSchema = z.object({
   'head-title': z.string(),
@@ -13,14 +13,10 @@ export default class ConstantsManager {
   private static constants: Constants | null = null;
 
   private static load() {
-    if (this.constants === null) {
-      const filePath: string = path.join(
-        process.cwd(),
-        'assets/constants.yaml'
-      );
-      const file = openFile(filePath);
-      this.constants = constantsSchema.parse(file);
-    }
+    if (this.constants !== null) return;
+    const filePath: string = path.join(process.cwd(), 'assets/constants.yaml');
+    const file = openFile(filePath);
+    this.constants = parseYaml(file, constantsSchema, filePath);
   }
 
   /**

@@ -1,7 +1,7 @@
 import fs from 'fs';
 import yaml from 'js-yaml';
+import type z from 'zod';
 import type { Schema } from 'zod';
-import z from 'zod';
 
 /**
  * ファイルを開いて文字列として返す
@@ -24,7 +24,7 @@ export function openFile(filePath: string): string {
  * @param filePath どのファイルの文字列なのか（エラーメッセージの表示に用いる）
  * @returns 結果のオブジェクト
  */
-export function parseContents(
+export function parseYaml(
   fileContents: string,
   schema: Schema,
   filePath: string

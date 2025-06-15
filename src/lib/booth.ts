@@ -1,6 +1,6 @@
-import { openFile, parseContents } from './yamlLoader';
 import path from 'path';
 import { z } from 'zod';
+import { openFile, parseYaml } from './yamlLoader';
 
 import {
   BoothSchema,
@@ -40,11 +40,7 @@ export default class BoothHelper {
     const filePath: string = path.join(process.cwd(), indexBooth);
 
     const fileContents = openFile(filePath);
-    const boothIndex = parseContents(
-      fileContents,
-      z.array(z.string()),
-      filePath
-    );
+    const boothIndex = parseYaml(fileContents, z.array(z.string()), filePath);
 
     // assets/booths/[booth_name].yamlからid列を用いてそれぞれの詳細情報を取得
     const boothsData: Booth[] = boothIndex.map(
@@ -55,11 +51,7 @@ export default class BoothHelper {
           `${booth_name}.yaml`
         );
         const fileContents = openFile(filePath);
-        const eachBoothData = parseContents(
-          fileContents,
-          BoothSchema,
-          filePath
-        );
+        const eachBoothData = parseYaml(fileContents, BoothSchema, filePath);
         return eachBoothData;
       }
     );
