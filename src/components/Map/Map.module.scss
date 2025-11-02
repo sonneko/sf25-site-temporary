@@ -19,6 +19,7 @@
     padding: 20px;
     margin: 0 -1px;
     display: flex;
+    width: 100%;
     align-items: center;
     justify-content: center;
     background-color: #fff;
@@ -30,11 +31,10 @@
 }
 
 .map {
-  border: 1px solid red;
   overflow: auto;
-  display: flex;
+  display: flexbox;
   flex-direction: column;
-  width: 90%;
+  width: 80%;
 }
 
 .map_svg {
@@ -42,7 +42,7 @@
 }
 
 .button_container {
-  width: 10%;
+  width: 100%;
 }
 
 .map_ui {

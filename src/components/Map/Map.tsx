@@ -3,8 +3,6 @@
 import { useState, useRef } from 'react';
 import styles from './Map.module.scss';
 import 'pinch-zoom-element';
-// import ImageMapper from 'react-img-mapper';
-// import areasJson from 'assets/map-image-map.json';
 
 type Layer = 1 | 2 | 3 | 4 | 5;
 
