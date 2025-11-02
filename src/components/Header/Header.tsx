@@ -23,7 +23,13 @@ export default function Header() {
     <>
       <header className={styles.header}>
         <div className={styles.logo}>
-          <img className={styles.logo_img} src="/icon/sf-logo-mono-with-text.svg" alt="SF25" width={120} height={40} />
+          <img
+            className={styles.logo_img}
+            src='/icon/sf-logo-mono-with-text.svg'
+            alt='SF25'
+            width={120}
+            height={40}
+          />
         </div>
         <nav className={styles.nav}>
           <ul className={styles.navList}>
