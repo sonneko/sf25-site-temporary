@@ -12,8 +12,15 @@ export default function BoothCard({
   data: Booth;
   variation?: BoothCardVariation;
 }) {
-  const { booth_id, booth_name, group_name, long_description, tags, color } =
-    data;
+  const {
+    booth_id,
+    booth_name,
+    group_name,
+    long_description,
+    tags,
+    color,
+    place,
+  } = data;
 
   const onImageNotFound = (
     event: React.SyntheticEvent<HTMLImageElement, Event>
@@ -38,8 +45,12 @@ export default function BoothCard({
             ></img>
             <div className={styles.card_content}>
               <h5 className={styles.card_title}>{booth_name}</h5>
-              <p className={styles.card_groupname}>{group_name}</p>
-              <p className={styles.card_text}>{long_description}</p>
+              <p className={styles.card_groupname}>
+                {group_name}/{place}
+              </p>
+              <p className={styles.card_text}>
+                {long_description.split('\\n').join('')}
+              </p>
               <div className={styles.tag}>
                 {tags.map(convertBoothTagInfo).map(tag => (
                   <span className={styles.tag_item} key={tag}>
