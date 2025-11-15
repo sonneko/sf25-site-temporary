@@ -1,67 +1,21 @@
-@use '../../styles/_mixin.scss' as mx;
-
-$color-blue: #4caf50;
-$color-red: #f44336;
-$color-purple: #9c27b0;
-$color-orange: #ff9800;
-$color-teal: #00bcd4;
+/* 変数定義 (色) */
+$color-blue: #4CAF50;
+$color-red: #F44336;
+$color-purple: #9C27B0;
+$color-orange: #FF9800;
+$color-teal: #00BCD4;
 $grid-line: #ccc;
-$time-axis-width: 10vw;
-$tab-background: #f8f8f8;
+$time-axis-width: 80px;
 
 .timetableContainer {
-  display: block;
+  display: flex;
   background-color: white;
   border: 1px solid $grid-line;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 90vw;
-  margin: 5em auto;
-  overflow: hidden;
 }
 
-.stageTabs {
-  display: flex;
-  border-bottom: 1px solid $grid-line;
-  border-left: 1px solid $grid-line;
-  background-color: $tab-background;
-  margin-left: $time-axis-width;
-}
-
-.tabButton {
-  flex-grow: 1;
-  padding: 10px 15px;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-  border-right: 1px solid $grid-line;
-  font-size: 1.1em;
-  font-weight: bold;
-  color: #555;
-  transition:
-    background-color 0.2s,
-    color 0.2s;
-
-  &:last-child {
-    border-right: none;
-  }
-
-  &:hover:not(.activeTab) {
-    background-color: #eee;
-  }
-}
-
-.activeTab {
-  background-color: white;
-  color: $color-blue;
-  border-bottom: 3px solid $color-blue;
-  margin-bottom: -1px;
-}
-
-.timetableContent {
-  display: flex;
-}
-
+/* 時間軸 */
 .timeAxis {
   width: $time-axis-width;
   padding-top: 20px;
@@ -71,7 +25,7 @@ $tab-background: #f8f8f8;
 
 .timeMarker {
   /* 30分ごとの基本の高さ (pixelPer30Minutesの値に合わせる) */
-  height: var(--marker-height, 60px);
+  height: var(--marker-height, 60px); 
   line-height: var(--marker-height, 60px);
   text-align: right;
   padding-right: 10px;
@@ -95,15 +49,18 @@ $tab-background: #f8f8f8;
   flex-grow: 1;
   display: flex;
   position: relative;
-  overflow-wrap: nowrap;
 }
 
 /* 各ステージ */
 .stage {
-  width: 100%;
-  min-width: 240px;
+  width: 50%;
   padding: 10px;
   position: relative;
+  border-left: 1px solid #eee;
+
+  &:first-child {
+    border-left: none;
+  }
 }
 
 .stageHeader {
@@ -119,8 +76,10 @@ $tab-background: #f8f8f8;
 
 .eventGrid {
   position: relative;
+  /* height は動的に計算されるため、ここでは最低限の定義 */
 }
 
+/* イベントブロック */
 .eventBlock {
   position: absolute;
   width: calc(100% - 20px);
@@ -129,15 +88,11 @@ $tab-background: #f8f8f8;
   padding: 5px 10px;
   box-sizing: border-box;
   color: white;
-  font-size: 4vw;
-  @include mx.media('>phone') {
-    font-size: 1.4em;
-  }
+  font-size: 0.9em;
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: transform 0.2s;
-  text-align: center;
 
   &:hover {
     transform: scale(1.02);
@@ -156,27 +111,9 @@ $tab-background: #f8f8f8;
   opacity: 0.9;
 }
 
-.eventIcon {
-  float: right;
-  margin-top: -3.5em;
-  transform: scale(0.8);
-  max-width: 300px;
-  border-radius: 4px;
-}
-
 /* 色クラス */
-.colorBlue {
-  background-color: $color-blue;
-}
-.colorRed {
-  background-color: $color-red;
-}
-.colorPurple {
-  background-color: $color-purple;
-}
-.colorOrange {
-  background-color: $color-orange;
-}
-.colorTeal {
-  background-color: $color-teal;
-}
+.colorBlue { background-color: $color-blue; }
+.colorRed { background-color: $color-red; }
+.colorPurple { background-color: $color-purple; }
+.colorOrange { background-color: $color-orange; }
+.colorTeal { background-color: $color-teal; }

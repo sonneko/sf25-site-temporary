@@ -1,3 +1,4 @@
+import "server-only";
 import type { Booth } from '../types/booth';
 import { boothSchema } from '../types/booth';
 
@@ -6,31 +7,23 @@ let booths: Booth[] | null = null;
 async function getBooths(): Promise<Booth[]> {
   if (booths !== null) return booths;
 
-  if (process.title !== 'browser') {
-    // Node.js environment
-    const { readFileSync } = await import('fs');
+  const { readFileSync } = import("fs");
 
-    const ids = readFileSync(
-      process.cwd() + '/assets/booths/allIds.txt',
-      'utf8'
-    ).split('\n');
-    const files: string[] = [];
-    ids.forEach(id => {
-      if (id !== '') {
-        files.push(
-          readFileSync(process.cwd() + '/assets/booths/' + id + '.json', 'utf8')
-        );
-      }
-    });
-    booths = [];
-    files.forEach(file => {
-      const booth = boothSchema.parse(JSON.parse(file));
-      (booths as Booth[]).push(booth);
-    });
-    return booths;
-  } else {
-    throw new Error('BoothsProviderはブラウザ上で利用できません。');
-  }
+  const ids = readFileSync(
+    process.cwd() + '/assets/booths/allIds.txt',
+    'utf8'
+  ).split(',');
+  const files = ids.map(id =>
+    readFileSync(process.cwd() + '/assets/booths/' + id + '.json', 'utf8')
+  );
+  booths = [];
+  files.forEach(file => {
+    const parsed = JSON.parse(file);
+    if (parsed['not-complete']) return;
+    const booth = boothSchema.parse(JSON.parse(file));
+    (booths as Booth[]).push(booth);
+  });
+  return booths;
 }
 
 export async function getBoothsById(id: string): Promise<Booth | undefined> {

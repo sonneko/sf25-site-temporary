@@ -10,7 +10,7 @@ export type EventColor = 'blue' | 'red' | 'purple' | 'orange' | 'teal';
 export interface EventData {
   id: string;
   name: string;
-  stage: 'gym1' | 'music';
+  stage: 'A' | 'B';
   /** イベントの開始時間 [時, 分] */
   startTime: [number, number];
   /** イベントの終了時間 [時, 分] */
