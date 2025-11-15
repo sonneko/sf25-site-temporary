@@ -1,0 +1,32 @@
+.container {
+  margin: 0 auto;
+  max-width: 1000px;
+  width: 90vw;
+
+  h3 {
+    margin-top: 2em;
+  }
+}
+
+.images {
+  .img {
+    display: block;
+    max-width: 1000px;
+    width: 90vw;
+    border: 2px #333 solid;
+    margin: 10px;
+  }
+
+  .img:nth-child(4) {
+    max-width: 500px;
+    width: 45vw;
+  }
+}
+
+.hint {
+  display: flex;
+  .img {
+    max-width: 500px;
+    width: 45vw;
+  }
+}

@@ -1,0 +1,40 @@
+name: Next.js Static Export (gh-pages)
+
+on:
+  push:
+    branches:
+      - release
+
+permissions:
+  contents: write
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    
+    env:
+      NEXT_PUBLIC_ENV: "product"
+
+    steps:
+      - name: リポジトリのチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Node.jsのセットアップ
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: 依存関係のインストール
+        run: npm install
+
+      - name: Next.jsの静的サイトビルド
+        run: npm run build
+
+      - name: Push to build branch
+        uses: s0/git-publish-subdir-action@master
+        env:
+          REPO: self
+          BRANCH: gh-pages
+          FOLDER: out
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # アクセス権限を持つトークン

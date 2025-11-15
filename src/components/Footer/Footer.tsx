@@ -13,9 +13,7 @@ export default function Footer() {
             { href: '/stage', text: 'ステージ企画' },
             { href: '/booth', text: '企画一覧' },
             { href: '/map', text: '会場地図' },
-            { href: '/blog', text: 'ブログ' },
-            { href: '/video', text: '広告動画' },
-            { href: '/search', text: 'サイト内検索' },
+            { href: '/search', text: '企画検索' },
           ].map((item, index) => (
             <li className={styles.sitemapItem} key={index}>
               <Link href={item.href}>
@@ -29,6 +27,10 @@ export default function Footer() {
         <p>
           &copy; 大阪星光学院スクールフェア2025運営委員会 All Rights Reserved.
         </p>
+      </div>
+
+      <div className={styles.logo}>
+        <img src='/icon/sf-logo-color.svg' width={150} />
       </div>
     </footer>
   );

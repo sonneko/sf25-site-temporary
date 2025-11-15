@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "club-11",
   "booth_name": "地歴部展示　〜日本百名城〜",
   "short_description": "テーマは日本百名城！レポートの展示、クイズ、無料部誌配布を行っています。社会科好き必見！ぜひ足を運んでみてください！",

@@ -9,7 +9,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #fff; /* Assuming a white background for the header */
+  background-color: #305ab6;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: A subtle shadow */
   z-index: 1200;
   margin: 0;
@@ -18,11 +18,20 @@
 .logo {
   font-size: 1.8em;
   font-weight: bold;
-  color: #333;
+  color: #ffff;
   text-decoration: none;
   a {
-    color: #333;
+    color: #fff;
     text-decoration: none;
+  }
+  .logo_img {
+    filter: brightness(0) saturate(100%) invert(76%) sepia(99%) saturate(1%) hue-rotate(38deg) brightness(104%)
+      contrast(97%);
+    margin-right: 2px;
+  }
+  span {
+    font-family: 'Hiragino Mincho ProN';
+    font-style: italic;
   }
 }
 
@@ -43,7 +52,7 @@
   margin: 0 1.1vw;
   a {
     text-decoration: none;
-    color: #333;
+    color: #fff;
     font-weight: 500;
     &:hover {
       text-decoration: underline;
@@ -110,7 +119,7 @@
   text-align: center;
 
   .mobileNavListItem {
-    margin: 20px 0;
+    margin: 50px 0;
     a {
       text-decoration: none;
       color: #333;

@@ -1,6 +1,6 @@
-// import BoothManager from '@/lib/BoothManager';
+'use client';
 import type { Booth } from '@/types/booth';
-import Link from 'next/link';
+import { convertBoothTagInfo } from '../../lib/BoothUtility';
 import styles from './BoothCard.module.scss';
 
 export type BoothCardVariation = 'default' | 'small';
@@ -12,18 +12,53 @@ export default function BoothCard({
   data: Booth;
   variation?: BoothCardVariation;
 }) {
-  const { booth_name } = data;
+  const {
+    booth_id,
+    booth_name,
+    group_name,
+    long_description,
+    tags,
+    color,
+    place,
+  } = data;
+
+  const onImageNotFound = (
+    event: React.SyntheticEvent<HTMLImageElement, Event>
+  ) => {
+    if (event.target instanceof HTMLImageElement) {
+      event.target.src = '/booths-icon/null.png';
+    }
+  };
 
   if (variation === 'default') {
     return (
       <>
-        <div className='container'>
-          <div className={styles.title}>
-            <Link href={'unimplemented!'}>
-              {' '}
-              {/*WARNING: not implemented"*/}
-              <h5 className='title-name'>{booth_name}</h5>
-            </Link>
+        <div className={styles.container}>
+          <div className={`${styles.card_body} ${styles[color]}`}>
+            <img
+              src={`booths-icon/${booth_id}.png`}
+              alt={booth_name}
+              width={200}
+              height={200}
+              className={styles.card_img}
+              onError={onImageNotFound}
+            ></img>
+            <div className={styles.card_content}>
+              <h5 className={styles.card_title}>{booth_name}</h5>
+              <p className={styles.card_groupname}>
+                {group_name}/{place}
+              </p>
+              <p className={styles.card_text}>
+                {long_description.split('\\n').join('')}
+              </p>
+              <div className={styles.tag}>
+                {tags.map(convertBoothTagInfo).map(tag => (
+                  <span className={styles.tag_item} key={tag}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </>
@@ -31,9 +66,18 @@ export default function BoothCard({
   } else if (variation === 'small') {
     return (
       <>
-        <div className='container'>
-          <div className='card-body'>
-            <h5 className='card-title'>{booth_name}</h5>
+        <div className={styles.small_container}>
+          <div>
+            <div>
+              <h5>{booth_name}</h5>
+              <p>{group_name}</p>
+              <p>{long_description}</p>
+              <div>
+                {tags.map(convertBoothTagInfo).map(tag => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </>

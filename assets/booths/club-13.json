@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "club-13",
   "booth_name": "ワクワク化学部",
   "short_description": "化学部です。MADサイエンティストによる演示実験を行います。物販ではビスマスやキーホルダーも売っているのでぜひ来て下さい",

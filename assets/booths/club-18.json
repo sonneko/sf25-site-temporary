@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "club-18",
   "booth_name": "ライフル射撃パビリオン",
   "short_description": "ライフル射撃とは何か…\\n答えは特別第二教室にある！\\n展示の他、自作映像やパフォーマンスもあるので是非寄ってみてください！",
@@ -7,5 +8,8 @@
   "color": "random",
   "has_cm": true,
   "has_website": true,
-  "not-complete": true
+  "group_name": "ライフル射撃部",
+  "place_id": "sp2",
+  "place": "特2",
+  "overview": "ライフル射撃に関する展示"
 }

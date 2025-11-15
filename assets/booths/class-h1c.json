@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "class-h1c",
   "booth_name": "トルネードポテト〜坊主を添えて〜",
   "short_description": "イケメン(？)で凄腕の坊主たちが作る、手軽に食べられる出来立てで絶品のトルネードポテトを食べて、SFを楽しみましょう!",

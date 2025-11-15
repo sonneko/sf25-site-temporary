@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "volu-29",
   "booth_name": "Shy Achiever",
   "short_description": "3曲演奏します。有名な曲が多いので、誰でも楽しめること間違いなし！1番を目指してきたクオリティをぜひ聴きに来てください！",

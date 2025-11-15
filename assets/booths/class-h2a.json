@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "class-h2a",
   "booth_name": "マルクス・ブンケイウス・パンケキウス〜大秦王パン敦〜",
   "short_description": "文系クラスが作るパンケーキはきっとｽ・ﾊﾞﾗｼｲ!日本を動かす文系さんたちが丹精込めてパンケーキを作ります。",

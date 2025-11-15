@@ -1,11 +1,12 @@
 {
-  "name": "sf25-site-temporary",
+  "name": "sf25-site",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "build-assets": "node script/build-assets.js",
+    "build-searchindex": "node script/build-searchIndex.js",
     "start": "npx serve@latest out",
     "export": "npm run build && next export",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
@@ -30,7 +31,9 @@
     "pinch-zoom-element": "^1.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-img-mapper": "^2.0.2",
     "server-only": "^0.0.1",
+    "tiny-segmenter": "^0.2.0",
     "zod": "^3.25.64",
     "zustand": "^5.0.8"
   },
@@ -43,6 +46,7 @@
     "@types/node": "^22.10.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "@types/tiny-segmenter": "^0.2.0",
     "@typescript-eslint/eslint-plugin": "^8.34.0",
     "@typescript-eslint/parser": "^8.34.0",
     "@vitejs/plugin-react": "^4.3.4",

@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "volu-28",
   "booth_name": "エンゲル係数高め",
   "short_description": "全員が今年から始めた初心者ですが何度もスタジオに通い練習してきました。最高のステージにしますのでぜひきてください。",

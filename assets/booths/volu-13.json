@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "volu-13",
   "booth_name": "The Password-Searcher's Escaping",
   "short_description": "迷い込んだのは、人間臓器密売組織のアジト．そこで繰り広げられる命をかけた脱出劇．果たして無事脱出することはできるのか！？",

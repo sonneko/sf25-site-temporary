@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "volu-23",
   "booth_name": "Navy Bloom",
   "short_description": "元気が出る曲を3曲演奏します。全力で楽しみたい人は、是非講堂まで足を運んでください！5人で力を合わせて頑張ります！",

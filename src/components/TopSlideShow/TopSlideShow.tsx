@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './TopSlideShow.module.scss';
 
-const SLIDESHOW_DELAY = 1000;
+const SLIDESHOW_DELAY = 3000;
 
 function useSlideShow(urlList: string[], delay: number) {
   if (urlList.length <= 1) {
@@ -12,25 +12,22 @@ function useSlideShow(urlList: string[], delay: number) {
   }
   const [slideShowUrlIndex, setSlideShowUrlIndex] = useState<number>(0);
   const routine = () => {
-    if (slideShowUrlIndex === urlList.length - 1) {
-      setSlideShowUrlIndex(0);
-    }
-    setSlideShowUrlIndex(slideShowUrlIndex + 1);
+    setSlideShowUrlIndex(pre => (pre === urlList.length - 1 ? 0 : pre + 1));
   };
   useEffect(() => {
     const id = setInterval(routine, delay);
     return () => {
       clearInterval(id);
     };
-  });
+  }, []);
 
   return urlList[slideShowUrlIndex];
 }
 
 const imageUrlList = [
-  'https://fakeimg.pl/1500x400.jpeg',
-  'https://fakeimg.pl/1500x400.jpeg',
-  'https://fakeimg.pl/1500x400.jpeg',
+  '/slideshow/1.jpeg',
+  '/slideshow/2.jpeg',
+  '/slideshow/3.jpeg',
 ];
 
 export default function TopSlideShow() {

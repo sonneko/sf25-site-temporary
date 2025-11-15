@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "club-23",
   "booth_name": "みんなで早押し&ペーパークイズ",
   "short_description": "高校生クイズ2025準決勝進出。ペーパークイズと早押しクイズを無料でやってます。高校生クイズ体験記込みの部誌は50円。",

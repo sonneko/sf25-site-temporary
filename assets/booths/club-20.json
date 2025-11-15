@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "club-20",
   "booth_name": "お化け屋敷",
   "short_description": "——自分の位置さえ見失うほどの闇。その暗がりの中には霊群が潜む——柔道部伝統のお化け屋敷です！ぜひお越しください！",

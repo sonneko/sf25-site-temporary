@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "grade-1a",
   "booth_name": "中1合唱",
   "short_description": "この日のためにクラス一丸となって練習してきました。私たちの歌声が、聴いてくださる皆さんの心に温かく響きますように。",

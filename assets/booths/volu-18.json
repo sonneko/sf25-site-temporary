@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "volu-18",
   "booth_name": "K-コジバンド",
   "short_description": "K-コジバンドは某数学教師のロマンチックなピアノに高2のサックスとヴァイオリンが加わった心安らぐ曲を奏でるつもりです。",

@@ -1,0 +1,15 @@
+{
+  "$schema": "../booth-schema.json",
+  "booth_id": "club-31",
+  "booth_name": "吹奏楽定期演奏会",
+  "group_name": "吹奏楽部",
+  "overview": "演奏会",
+  "place": "音楽室",
+  "place_id": "music",
+  "long_description": "今年は午前がピアノ、午後が合奏となっています。どちらも有名なアニソンやポップスを選曲したので休憩がてらにお越し下さい。",
+  "short_description": "今年は午前がピアノ、午後が合奏となっています。どちらも有名なアニソンやポップスを選曲したので休憩がてらにお越し下さい。",
+  "color": "random",
+  "has_cm": false,
+  "has_website": false,
+  "tags": ["performance"]
+}

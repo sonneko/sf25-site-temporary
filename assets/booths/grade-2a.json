@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "grade-2a",
   "booth_name": "中2合唱",
   "short_description": "中2のクラス合唱です。合宿や音楽の授業、LHRで練習しました。ボーイソプラノや男性ならではの低音をお楽しみください！",

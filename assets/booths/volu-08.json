@@ -1,0 +1,15 @@
+{
+  "$schema": "../booth-schema.json",
+  "booth_id": "volu-08",
+  "booth_name": "サレジオ亭",
+  "group_name": "親父の会",
+  "overview": "フランクフルト",
+  "place_id": "ground",
+  "place": "グラウンド",
+  "long_description": "父親有志（父親聖書教室）が集結！スクールフェアー伝統『合格フランク！』合格焼印が押されたフランクフルトを販売します。大阪星光学院を志望されている小学生の方、様々な試験にチャレンジされている方の合格祈願もいたしますので是非お越しください！",
+  "short_description": "在校生の父親有志により結成した「親父の会」星光名物「合格フランク」を販売します。開いている午前中がおすすめです！",
+  "has_website": false,
+  "has_cm": false,
+  "color": "random",
+  "tags": ["food"]
+}

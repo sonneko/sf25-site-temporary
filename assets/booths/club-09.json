@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "club-09",
   "booth_name": "ボランチル",
   "short_description": "ペットボトル飲料を販売中！ボランティア部の活動写真と、3校合同で作った大きなエコキャップアートを展示しています！",

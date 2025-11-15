@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "volu-30",
   "booth_name": "Unnamed éclat",
   "short_description": "普段ふざけてる変人たちが真面目に音楽をやりました。みんな新人で、拙いバンドですがどうぞお聴きください。",

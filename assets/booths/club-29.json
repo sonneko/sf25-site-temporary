@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "club-29",
   "booth_name": "けん玉教室",
   "short_description": "中学棟4階音楽室でけん玉教室を開催します！一人でも友達や家族と来ても楽しめます。無料なので気軽に遊びに来てください！",

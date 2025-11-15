@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "volu-25",
   "booth_name": "TYSYT",
   "short_description": "タイサイトです！「どこよりも楽しむ」をモットーに全力で演奏します！みんなと演奏するのを講堂で楽しみに待っています！",

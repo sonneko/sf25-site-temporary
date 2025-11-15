@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "volu-02",
   "booth_name": "AOPIΣTOΣ",
   "short_description": " Aoristosメンバーが今まで自主的に学んできたことを展示します。\\n学問に興味がある方はぜひお越しください。",

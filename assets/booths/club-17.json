@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "club-17",
   "booth_name": "Art club展示会（部長曰く国宝級）",
   "short_description": "部員は少ないが熱量は高い！部員ほぼ中学生の美術部が試行錯誤して作品を作り上げました！ステッカーなども販売してます！！",

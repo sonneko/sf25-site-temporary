@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "class-h2d",
   "booth_name": "麺屋　あなたとまざりたいんです",
   "short_description": "断言します。老若男女問わず、これを食べたあなたは絶対癖になる。個性が強すぎるみんなで作った至極の一杯をぜひご賞味あれ。",

@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "club-10",
   "booth_name": "んけうすproject2025",
   "short_description": "毎年恒例の部員が作ったゲームを販売する企画です。無料でも遊べるので、ぜひ寄って行ってください！※今年は数学はありません。",

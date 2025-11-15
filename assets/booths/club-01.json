@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "club-01",
   "booth_name": "伝統のみたらし",
   "short_description": "温かな団子にトロッとしたみたらしとはちみつ！これがまさかの150円！陸上部のスピードと体力で早い常に上手いを提供します！",

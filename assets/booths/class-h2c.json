@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "class-h2c",
   "booth_name": "BIOHAZARD ー死之菌からの逃亡ー",
   "short_description": "襲いかかってくる死之菌の感染者を倒し、生き延びろ！生死を懸けた戦いが、今始まる！豪華景品も用意してるので来てねー",

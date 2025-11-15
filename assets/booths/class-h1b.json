@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "class-h1b",
   "booth_name": "Hot Dog",
   "short_description": "高校1年B組はホットドッグを売っています\\n僕たちのコンセプトはDFN（デカ、太、長）です\\n苦手なものを抜くこともできます",

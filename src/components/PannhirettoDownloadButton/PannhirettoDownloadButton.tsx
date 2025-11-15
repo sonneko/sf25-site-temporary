@@ -28,10 +28,20 @@ export default function PannhirettoDownloadButton() {
                   <li>無断で改変しない</li>
                 </ul>
               </div>
-              <p>以上の規約に同意しますか？</p>
-              <div className={styles.buttonBox}>
-                <button onClick={toggle}>いいえ</button>
-                <button onClick={toggle}>はい</button>
+              <div className={styles.buttons}>
+                <a
+                  href='/pamphlet.pdf'
+                  onClick={() => setIsShowing(false)}
+                  className={styles.downloadUrl}
+                >
+                  ダウンロードする
+                </a>
+                <a
+                  onClick={() => setIsShowing(false)}
+                  className={styles.foldButton}
+                >
+                  閉じる
+                </a>
               </div>
             </div>
           </div>

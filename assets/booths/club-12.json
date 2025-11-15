@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "club-12",
   "booth_name": "星光グラフ",
   "short_description": "部員撮影の写真の展示とグッズ販売、50枚限定の合格祈願チェキ撮影会を行います。ぜひお越しください！",

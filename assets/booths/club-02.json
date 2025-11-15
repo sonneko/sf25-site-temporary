@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "club-02",
   "booth_name": "いてまえ焼きそば",
   "short_description": "香ばしいソースの香りと迫力あるある鉄板さばきで、お腹も心も満たされること間違いなし！是非足を運んでみてください。",

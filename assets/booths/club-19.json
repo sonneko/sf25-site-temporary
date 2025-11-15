@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "club-19",
   "booth_name": "スターライトプラネタリウム　星博",
   "short_description": "部員によるプラネタリウムを開催しています。今年のプラネタは投影機も作り直しました。新しくなった天文部をぜひご覧下さい！",

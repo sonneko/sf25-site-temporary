@@ -1,13 +1,23 @@
+@use '../../styles/_mixin' as mx;
+
 .table {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   text-align: center;
   align-items: center;
   border-radius: 20px;
-  margin: 0 10px;
+  margin-right: 6px;
+  margin-top: 7em;
+  margin-bottom: 7em;
+  @include mx.media('<tablet') {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #333;
+  }
   .title {
-    background-color: #eee;
-    width: 100%;
+    background-color: #ddd;
+    width: calc(100% - 2px);
+    border-radius: 20px 20px 0 0;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -16,8 +26,13 @@
 }
 
 .tr {
-  border: dotted 2px #555;
-  margin: -2px;
+  margin: 0 -1px;
+}
+
+.infoBox {
+  @include mx.media('>tablet') {
+    border: dotted 2px #555;
+  }
 }
 
 .bold {
@@ -26,10 +41,19 @@
 
 .th {
   margin: 2em 0;
+  text-wrap: nowrap;
 }
 
 .attention {
-  margin-left: 1em;
+  margin-top: 7em;
+  max-width: 1000px;
+  width: 90vw;
+  margin: 0 auto;
+  h1 {
+    margin: 1em 0;
+    font-size: 35px;
+    text-decoration: underline;
+  }
 }
 
 .container {

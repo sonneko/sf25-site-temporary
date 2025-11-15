@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "class-h1d",
   "booth_name": "Goチーズバーガー",
   "short_description": "星校初のハンバーガーに挑戦した郷地です。本気で挑みました、郷地 is バーガーとでも言いましょうか。ぜひ来てね",

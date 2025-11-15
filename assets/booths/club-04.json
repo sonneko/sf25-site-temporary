@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "club-04",
   "booth_name": "籠手面堂",
   "short_description": "二兎も三兎も追っていく、を掲げる剣道部が伝統を守り焼き鳥を焼きます！旨い、安い、感謝の三兎を追う籠手面堂へ是非どうぞ！",

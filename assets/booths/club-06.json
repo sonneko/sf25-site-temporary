@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "club-06",
   "booth_name": "たこせん",
   "short_description": "バレー部が販売するのはお祭りには欠かせないたません！小腹が減ったらちょい食べ感覚でぜひ来てください。手頃な価格で販売中！",

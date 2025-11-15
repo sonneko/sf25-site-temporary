@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "volu-14",
   "booth_name": "Eden:アグベイのすべて;",
   "short_description": "大人気人形アグリーベイビーのたぶん世界初の個展&1st写真集をプロデュースしました。#アグベイに沼れ#秋のアグベイまつり",

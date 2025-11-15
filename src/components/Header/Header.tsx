@@ -15,6 +15,7 @@ export default function Header() {
     { name: 'INFO', path: '/info' },
     { name: 'MAP', path: '/map' },
     { name: 'SEARCH', path: '/search' },
+    { name: 'BOOTH', path: '/booth' },
     { name: 'STAGE', path: '/stage' },
   ];
 
@@ -22,7 +23,13 @@ export default function Header() {
     <>
       <header className={styles.header}>
         <div className={styles.logo}>
-          <Link href='/'>SEIKO SF25</Link>
+          <img
+            className={styles.logo_img}
+            src='/icon/sf-logo-mono-with-text.svg'
+            alt='SF25'
+            width={120}
+            height={40}
+          />
         </div>
         <nav className={styles.nav}>
           <ul className={styles.navList}>

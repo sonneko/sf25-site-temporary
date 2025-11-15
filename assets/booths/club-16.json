@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "club-16",
   "booth_name": "ライフサイエンスクラブ",
   "short_description": "ライフサイエンスクラブでは、カエルの解剖ショー、コケテラリウム作り体験や特製しおりの販売などの豊富な企画があります！",

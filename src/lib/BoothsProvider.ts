@@ -4,7 +4,7 @@ import { boothSchema } from '../types/booth';
 
 let booths: Booth[] | null = null;
 
-function getBooths(): Booth[] {
+async function getBooths(): Promise<Booth[]> {
   if (booths !== null) return booths;
 
   const { readFileSync } = import("fs");
@@ -26,14 +26,14 @@ function getBooths(): Booth[] {
   return booths;
 }
 
-export function getBoothsById(id: string): Booth | undefined {
-  return getBooths().find(booth => booth.booth_id === id);
+export async function getBoothsById(id: string): Promise<Booth | undefined> {
+  return (await getBooths()).find(booth => booth.booth_id === id);
 }
 
-export function getAllBooths(): Booth[] {
+export async function getAllBooths(): Promise<Booth[]> {
   return getBooths();
 }
 
-export function getAllBoothsIDs(): string[] {
-  return getBooths().map(booth => booth.booth_id);
+export async function getAllBoothsIDs(): Promise<string[]> {
+  return (await getBooths()).map(booth => booth.booth_id);
 }

@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "club-21",
   "booth_name": "プチステンドグラス製作体験",
   "short_description": "ここでは美しい(かもしれない)ものを見、作ることができます。\\n他にも物理に関する展示などもみれます。ぜひきてください。",

@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "club-07",
   "booth_name": "ほっけいぽていと",
   "short_description": "ホッケー部の作る外カリ中ほくの超美味しいフライドポテトを\\nぜひ皆さん食べに来てください！グラウンドで待ってます！",

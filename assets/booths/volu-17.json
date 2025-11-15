@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "volu-17",
   "booth_name": "星光生ラップバトル選手権",
   "short_description": "星光生のなんたるか。それは歌詞にない本心を歌う時に現れる。上原先生含む4MCの即興ラップで会場沸騰待ったなし！！",

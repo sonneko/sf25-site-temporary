@@ -2,3 +2,11 @@
   position: relative;
   z-index: 1;
 }
+
+.logo_box {
+  position: absolute;
+  top: calc(400px + 14vh);
+  left: 5vw;
+  z-index: -200;
+  opacity: 0.2;
+}

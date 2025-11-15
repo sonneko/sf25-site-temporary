@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "class-m3c",
   "booth_name": "ホロホロ堂",
   "short_description": "中3Cのホロホロ堂です！！創業99年で閉店した伝説の本屋がSFで遊技場として復活！100年目の今ゲームでオモテナシ",

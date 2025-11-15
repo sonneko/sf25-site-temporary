@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "club-26",
   "booth_name": "PK",
   "short_description": "他のところとは比べ物にならない超豪華景品の数々！！！あなたはサッカー部相手に何点決められる？？ぜひお待ちしています！",

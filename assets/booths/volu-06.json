@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "volu-06",
   "booth_name": "鉄道研究会",
   "short_description": "今年も鉄研が登場！Nゲージ運転体験やプラレール展示、合格祈願切符販売など見どころ満載！鉄道の魅力を体感しよう！",

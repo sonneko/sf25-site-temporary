@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "volu-27",
   "booth_name": "The strange face man",
   "short_description": "家の風呂が練習場所のボーカルを頼りに、個性豊かなメンバーで本番直前まで精一杯練習しますので、是非講堂に足を運んでください",

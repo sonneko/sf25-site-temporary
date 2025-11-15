@@ -1,0 +1,15 @@
+{
+  "$schema": "../booth-schema.json",
+  "booth_id": "grade-1b",
+  "booth_name": "中1バザー",
+  "group_name": "中1バザー",
+  "place_id": "m1a/m1b",
+  "place": "M1B/M1B",
+  "overview": "バザー",
+  "long_description": "中1のバザーは午前と午後の二回販売です。各家庭から集まった掘り出し物がいっぱい！あなたのお気に入りがきっと見つかるはず！",
+  "short_description": "中1のバザーは午前と午後の二回販売です。各家庭から集まった掘り出し物がいっぱい！あなたのお気に入りがきっと見つかるはず！",
+  "color": "random",
+  "has_cm": false,
+  "has_website": false,
+  "tags": ["store"]
+}

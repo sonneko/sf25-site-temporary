@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "class-m3b",
   "booth_name": "フリースロー",
   "short_description": "ボールを投げて、ゴールを狙おう！近距離・中距離・遠距離の3つの距離から選べます。入った数に応じて景品があるよ。来てね",

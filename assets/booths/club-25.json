@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "club-25",
   "booth_name": "スーパーボールすくい",
   "short_description": "那須与一は一矢で敵船の扇を射抜いてみせたと言われます。この企画も、あなたの胸の内をひょうと射抜いて見せましょう。",

@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "class-m3a",
   "booth_name": "USJ( Universal Seiko Japan)",
   "short_description": "テーブルの穴にボールを投げ入れろ！あたりに入れば豪華景品！みんなもらえるジュースに大当たりのぬいぐるみがあるよ！",

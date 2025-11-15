@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "volu-01",
   "booth_name": "ジェットコースター・メリーゴーランド",
   "short_description": "今年も膨大な時間と労力をかけて作った超大作、ジェットコースターとメリーゴーランドをやります！とくとご堪能あれ！",

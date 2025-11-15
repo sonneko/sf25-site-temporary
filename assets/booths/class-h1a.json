@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "class-h1a",
   "booth_name": "元祖洋二郎系ラーメンすみ軒",
   "short_description": "我らが担任松村洋二郎先生監修。あ、ついに！男たちの圧で作ったあっつあつのラーメンでほっとしてみたら？グラウンドに集まれ！",

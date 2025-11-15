@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "grade-2b",
   "booth_name": "75Kといっしょ",
   "short_description": "私達中2は、ゲームコーナー、迷路、中2が小学生に教える体験授業の3つをします！文武両道といえばここしか勝たん！ぜひ来てください！",

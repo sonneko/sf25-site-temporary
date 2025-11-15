@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "volu-11",
   "booth_name": "本場イギリスで世界最高レベルに挑戦！サッカー兼トレーナー留学で世界を知る",
   "short_description": "文部科学省が展開する日本の若者の海外留学を促進する「トビタテ！留学JAPAN」で英国に留学した。その内容を紹介する。",
@@ -8,8 +9,7 @@
   "has_cm": false,
   "has_website": true,
   "group_name": "とびたて発表",
-  "place_id": "###",
-  "place": "###",
-  "overview": "レポート展示",
-  "not-complete": true
+  "place_id": "m3c",
+  "place": "M3C",
+  "overview": "レポート展示"
 }

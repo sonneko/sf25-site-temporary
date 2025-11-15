@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 
 // TODO: エラーレポートエンドポイントのURLを変更
 // WARNING: 定数がConstantsManager呼び出しではなく分散している。クライアントサイドからのConstantsManager呼び出し非対応。
-const ERROR_REPORT_ENDPOINT = 'https://example.com/error-report';
+const ERROR_REPORT_ENDPOINT =
+  'https://script.google.com/macros/s/AKfycbxXpHa0GuI2U8-CP_OgkxMPzHQvuUmu8Iq9VpVd2K6H4g0BLqo5vwQYP8OZcSaAxzMh/exec';
 
 type ReportProgress = 'done' | 'doing';
 

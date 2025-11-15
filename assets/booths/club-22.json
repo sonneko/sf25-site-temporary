@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "club-22",
   "booth_name": "囲碁将棋部",
   "short_description": "※囲碁はありません。部員との対局(50円)、部誌の販売(50円)を行っています。将棋を指したい方は是非お立ち寄りください",

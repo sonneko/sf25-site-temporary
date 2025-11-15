@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "volu-16",
   "booth_name": "ワタ芸〜極Orange〜",
   "short_description": "高2の修学旅行を経てSFでもやることになりました。ヲタ芸を見れるのは、最初で最後だと思うのでぜひ見に来てください。",

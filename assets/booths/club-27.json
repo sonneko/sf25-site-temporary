@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "club-27",
   "booth_name": "占いの館Ⅱ",
   "short_description": "皆さん、占いを受けたことはあまりないのではないでしょうか。でもご安心を。長年(？)サッカー部で受け継いた技術で占います。",

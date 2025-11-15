@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "club-05",
   "booth_name": "ピンポン玉こんにゃく",
   "short_description": "私達卓球部は日頃の練習で培ったピンポン球に対する繊細なタッチで玉こんにゃくを作ります。ぜひご賞味ください。",

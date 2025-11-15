@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "volu-05",
   "booth_name": "謎グルイ",
   "short_description": "ここで開催される様々な「ゲーム」には「必勝法」がある。至高のひらめきで謎を解き明かし、難攻不落のゲームを打ち破れ！",

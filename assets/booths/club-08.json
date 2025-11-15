@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "club-08",
   "booth_name": "たこやき",
   "short_description": "高校バスケ部が作る、外はカリカリ、中はふわふわのたこ焼き！ほっぺが落ちるほどの美味しさです。ぜひ、来てね",

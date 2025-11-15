@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "volu-26",
   "booth_name": ".5ベース",
   "short_description": "ツインベースバンドです。老若男女にササるクリープハイプとSaucy Dogをやります。名前の由来と見所はweb版へ！！",
@@ -7,5 +8,8 @@
   "color": "red",
   "has_cm": true,
   "has_website": true,
-  "not-complete": true
+  "group_name": ".5ベース",
+  "overview": "バンド",
+  "place_id": "gym1",
+  "place": "講堂"
 }

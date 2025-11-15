@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "volu-24",
   "booth_name": "Know Weathers'",
   "short_description": "仕事に勉強、人間関係…。日々の生活に疲れたあなたへ。心に火を灯すあの曲や大切な人を想うあの曲…。最高の15分をここに！",

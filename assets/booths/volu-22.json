@@ -1,4 +1,5 @@
 {
+  "$schema": "../booth-schema.json",
   "booth_id": "volu-22",
   "booth_name": "Mr.Adults",
   "short_description": "「すべてが無意味だって思える」ちょっと疲れたそこのあなたへ。\\nまだ人生捨てたもんじゃない！\\nもう一回、もう一回、、、！",

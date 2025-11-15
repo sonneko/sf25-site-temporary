@@ -1,0 +1,17 @@
+.container {
+  margin: 0 10px;
+
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+
+    .button {
+      padding: 8px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+  }
+}

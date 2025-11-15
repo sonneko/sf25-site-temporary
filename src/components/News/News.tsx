@@ -33,9 +33,6 @@ export default function News() {
             </div>
           ))}
         </div>
-        <div className={styles.ankerDiv}>
-          <Link href={'/news'}>News一覧を見る→</Link>
-        </div>
       </div>
     </div>
   );
